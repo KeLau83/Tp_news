@@ -1,8 +1,23 @@
-<?php
-        $articles = $viewData['articles'];
-             foreach ($articles as $article) {?>
-               <h2> <?= $article['titre'] ?> le <?= $article['date'] ?> </h2>
-                    <p> <?= $article['contenu'] ?> </p>
-                    <a href="index.php?action=post&amp;id=<?= $article['id'] ?>">Commentaires...</a><?php
-            }
-        ?>
+<div class="container">
+        <div class="row">
+                <div class="col-3"></div>
+                <div class="col-6">
+                        <?php
+                        $newList = $viewData['newsList'];
+                        foreach ($newList as $news) {?>
+                                <div class="previewNews">
+                                        <h2> <?= $news -> getTitle() ?> </h2>
+                                        <p><i>
+                                                le <?= $news -> getDateAdd() ?> par <?= $news -> getAuthor() ?>
+                                                <?php include("./include/editInclude.php") ?>
+                                        </i></p>
+                                        </p>
+                                        <p> <?= $news -> getExtractContent() ?> </p>
+                                        <a href="index.php?action=news&amp;id=<?= $news -> getId() ?>">Lire la suite de l'article</a>
+                                </div><?php
+                                } ?>
+                                </div>
+                </div>
+                <div class="col-3"></div>
+        </div>
+</div>

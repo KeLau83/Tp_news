@@ -1,0 +1,33 @@
+
+
+div.navbar-collapse {
+    justify-content: flex-end;
+    text-align:left ;
+}
+
+div.previewNews {
+    border-bottom: solid 1px black;
+    padding: 15px 0px;
+}
+
+.row-table {
+    padding-top: 75px;
+}
+
+.table-edit{
+    color: white;
+}
+
+.table-edit:hover{
+    color: grey;
+}
+
+.delete-news {
+    padding-top: 50px;
+}
+
+.delete-news > * {
+    margin-bottom: 25px;
+    text-align: center;
+   
+}

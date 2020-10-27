@@ -1,18 +1,29 @@
 <?php
+namespace App\controller;
+
+
 class BaseController {
-    protected function render($viewName, $viewData, $viewTemplate = 'template.php') {
+
+    protected function render($viewName, $viewData = null, $viewTemplate = 'template.php') {
+        extract($viewData);
         ob_start();
         require('./View/' .$viewName);
         $content = ob_get_clean();
         require('./template/' .$viewTemplate);
     }
 
-    protected function connectToDB() {
-        try {
-            $bdd = new PDO('mysql:host=localhost;dbname=tp_news;charset=utf8', 'root', '');
-            return $bdd;
-        } catch (Exception $e) {
-            die('Erreur : ' . $e->getMessage());
-        }    
+    protected function issetWithGet($info) {
+        if (isset($_GET[$info])) {
+            return htmlspecialchars($_GET[$info]);
+        }
+        return null;
     }
+    
+    protected function issetWithPost($info) {
+        if (isset($_POST[$info])) {
+            return htmlspecialchars($_POST[$info]);
+        }
+    }
+
+    
 }
